@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="file1.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+
+<body style="background-color: black">
+
+    <p>selectedcountry : {{selectedcountry}}</p>
+    <p>new : {{new}}</p>
+    <p>active : {{active}}</p>
+    <p>critical : {{critical}}</p>
+    <p>recovered : {{recovered}}</p>
+    <p>deaths : {{deaths}}</p>
+    <p>total :{{total}}</p>
+
+    <h1 style="color: white;text-align: center"><span style="color:Red">COVID-19</span> DATA</h1>
+
+    <form method="post" class="d-flex justify-content-center align-items-center"action="">
+        {% csrf_token %}
+        <select class="form-control" style="width: 200px" name="selectedcountry">
+        {% for country in mylist %}
+        <option>{{country}}</option>
+        {% endfor %}
+        </select>
+    <input type="submit" class="btn btn-danger" name="">
+    </form>
+    <h1 style="margin-top:150px; color:white;text-align:center">{{selectedcountry}}</h1>
+    <div class=" d-flex justify-content-center align-items-center">
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{new}}</h1>
+        <p>new cases</p>
+      </div>
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{deaths}}</h1>
+        <p>deaths</p>
+      </div>
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{critical}}</h1>
+        <p>critical</p>
+      </div>
+    </div>
+
+    <div class=" d-flex justify-content-center align-items-center">
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{total}}</h1>
+        <p>total</p>
+      </div>
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{recovered}}</h1>
+        <p>recovered</p>
+      </div>
+      <div class="container" style="height:100px;width:200px">
+        <h1>{{active}}</h1>
+        <p>active</p>
+      </div>
+    </div>
+
+
+
+</body>
+</html>
